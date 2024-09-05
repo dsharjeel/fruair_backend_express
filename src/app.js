@@ -26,6 +26,13 @@ app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 app.use(express.static("public"));
 app.use(cookieParser());
 
+
+// import routers
+
+import HealthCheckRouter from "./routes/healthcheck.route.js"
+
+app.use("/api/v1", HealthCheckRouter)
+
 // error handler
 // app.use((_, res) => {
 //     res.status(404).send("Page not found");
